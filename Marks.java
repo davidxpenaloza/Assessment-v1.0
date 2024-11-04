@@ -3,8 +3,8 @@ import java.util.Scanner;
 /**
  * Write a description of class Marks here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (David Penaloza)
+ * @version (V1.0)
  */
 public class Marks
 {
