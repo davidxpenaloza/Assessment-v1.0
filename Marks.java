@@ -16,27 +16,30 @@ public class Marks
      */
     public static void main(String[] args)
     {
-        int numberOfStudents = 5;
+        int numberOfStudents = 10;
         float[] mark = new float[numberOfStudents];
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("Give marks to 5 students");
-        
+        //Code for avoid the loop from the use the sentence "continue". 
+        //The user needs to write the adequate value. When users execute the true value according the problem condition. 
+        //Then, they can entered the next value. Otherwise a message will be displayed: "invalide mark, please enter again"
+
         for(int i=0; i<numberOfStudents; i++){
             
-            float temp = scanner.nextFloat();
-            
-            if(temp<0 || temp>30){
-            
-                System.out.println("Invalide marks,please enter again");
-                continue;
+            float temp;
+
+            do{
+                temp = scanner.nextFloat();
+                if(temp<0 || temp>10){
+                   
+                    System.out.println("Invalide marks,please enter again");    
+                }
+                } while (temp<0 || temp>10);
+                mark[i] = temp;
             
             }
-            
-            mark[i] = temp;
-            
-        }
-        
+      
         System.out.println("Entered marks");
         for(int i=0; i<numberOfStudents; i++){
             System.out.println(mark[i]);
@@ -62,7 +65,6 @@ public class Marks
         float totalsumdiff =0;
         for(int i = 0; i<numberOfStudents; i++){
             totalsumdiff = totalsumdiff + (mark[i]-mean)*(mark[i]-mean)/numberOfStudents;
-            //System.out.println("The total summ of Mark is: " +totalsumdiff);
         
         }
         float Markmax=0;
