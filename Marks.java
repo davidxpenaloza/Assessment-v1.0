@@ -8,44 +8,45 @@ import java.util.Scanner;
  */
 public class Marks
 {
-    // instance variables - replace the example below with your own
-    //public int x;
+    // instance variables 
 
     /**
      * Constructor for objects of class Marks
      */
     public static void main(String[] args)
     {
-        int numberOfStudents = 10;
+        int numberOfStudents = 30;
         float[] mark = new float[numberOfStudents];
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Give marks to 5 students");
+        System.out.println("Give marks to 30 students");
         //Code for avoid the loop from the use the sentence "continue". 
         //The user needs to write the adequate value. When users execute the true value according the problem condition. 
         //Then, they can entered the next value. Otherwise a message will be displayed: "invalide mark, please enter again"
-
+        
+        //Get marks from the user with validation
         for(int i=0; i<numberOfStudents; i++){
             
             float temp;
 
             do{
                 temp = scanner.nextFloat();
-                if(temp<0 || temp>10){
+                if(temp<0 || temp>30){
                    
                     System.out.println("Invalide marks,please enter again");    
                 }
-                } while (temp<0 || temp>10);
+                } while (temp<0 || temp>30);
                 mark[i] = temp;
             
             }
-      
+        //Showed user marks
         System.out.println("Entered marks");
         for(int i=0; i<numberOfStudents; i++){
             System.out.println(mark[i]);
             
         }
         
+        //Calculate the mean (average)
         float total = 0;
         for(int i = 0; i<numberOfStudents; i++){
             total = total + mark[i];
@@ -53,20 +54,8 @@ public class Marks
         }
         float mean =0;
         mean = total / numberOfStudents;
-        System.out.println("The mean value of total Mark is: " + mean);
         
-        float sumdiff;
-        for(int i =0; i<numberOfStudents; i++) {
-            sumdiff = (mark[i]-mean)*(mark[i]-mean);
-            sumdiff = sumdiff / numberOfStudents;
-            System.out.println(sumdiff);
-        
-        }
-        float totalsumdiff =0;
-        for(int i = 0; i<numberOfStudents; i++){
-            totalsumdiff = totalsumdiff + (mark[i]-mean)*(mark[i]-mean)/numberOfStudents;
-        
-        }
+        //Calcute mark Max
         float Markmax=0;
         for(int i=0; i < numberOfStudents; i++){
             if (mark[i] > Markmax) {
@@ -75,6 +64,7 @@ public class Marks
             } 
         }
         
+        //Calcute mark Min
         float Markmin = mark[0];
         for(int i=0; i < numberOfStudents; i++){
             if (mark[i] < Markmin) {
@@ -83,9 +73,26 @@ public class Marks
             } 
         }
         
-        System.out.println("Variance: " +totalsumdiff);
+        //Calculate standard deviation
+        float sumdiff;
+        for(int i =0; i<numberOfStudents; i++) {
+            sumdiff = (mark[i]-mean)*(mark[i]-mean);
+            sumdiff = sumdiff / numberOfStudents;
+            //System.out.println(sumdiff);
+        
+        }
+        float totalsumdiff =0;
+        for(int i = 0; i<numberOfStudents; i++){
+            totalsumdiff = totalsumdiff + (mark[i]-mean)*(mark[i]-mean)/numberOfStudents;
+        
+        }
+        
+        float standardDeviation = (float) Math.sqrt(totalsumdiff / (numberOfStudents-1));
+        
         System.out.println("The maximun value of Mark is: " + Markmax);
         System.out.println("The minimun value of Mark is: " + Markmin);
-
+        System.out.println("The mean value of total Mark is: " + mean);
+        System.out.println("Standard Deviation: "+ standardDeviation); 
+        
     }
 }
