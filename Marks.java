@@ -15,7 +15,7 @@ public class Marks
      */
     public static void main(String[] args)
     {
-        int numberOfStudents = 5;
+        int numberOfStudents = 30;
         float[] mark = new float[numberOfStudents];
         Scanner scanner = new Scanner(System.in);
         
@@ -36,11 +36,11 @@ public class Marks
 
             do{
                 temp = scanner.nextFloat();
-                if(temp<0 || temp>5){
+                if(temp<0 || temp>30){
                    
                     System.out.println("Invalide marks,please enter again");    
                 }
-                } while (temp<0 || temp>5);
+                } while (temp<0 || temp>30);
                 mark[i] = temp;
             
             }
