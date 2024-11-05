@@ -24,7 +24,7 @@ public class Marks
         //assignment name
         System.out.print("Enter the assignment name: ");
         String assignmentName = scanner.nextLine();
-        System.out.print("\nEnter the marks: ");
+        System.out.print("Enter the marks: \n");
         //Code for avoid the loop from the use the sentence "continue". 
         //The user needs to write the adequate value. When users execute the true value according the problem condition. 
         //Then, they can entered the next value. Otherwise a message will be displayed: "invalide mark, please enter again"
